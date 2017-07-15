@@ -1,0 +1,57 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+#header {
+    background: #eee;
+    border: 1px dotted #ccc;
+    padding: 20px 0;
+}
+#page-title {
+    text-transform: uppercase;
+    text-align: center;
+    color: #e03535;
+}
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background: #e03535;
+    font-size: 20px;
+}
+.button:hover {
+    background: #bc2020;
+}
+#header .fa {
+    font-size: 24px;
+    color: #e03535;
+}
+#question,
+#message,
+#record {
+    font-size: 20px;
+    font-weight: bold;
+}
+#question,
+#answer,
+#message,
+#next,
+#record,
+.stop-start {
+    text-align: center;
+    border: 1px dotted #ccc;
+    border-top: none;
+    padding: 20px 0;
+}
+#hide {
+    display: none;
+}
+
+
+
