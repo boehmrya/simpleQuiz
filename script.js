@@ -3,8 +3,8 @@
 var questions = ["Favorite Color?", "Favorite City?", "What state were you born in?", "Favorite season?", "Favorite Food"];
 var answers = ["Blue", "Chicago", "Alaska", "Fall", "Pizza"];
 var currentQuestion = 0;
-var numCorrect = 0;
 var numQuestions = questions.length;
+var numCorrect = 0;
 var currentQuestion = 0;
 var answerCorrect = false;
 var numTries = 3;
@@ -44,21 +44,30 @@ function validateAnswer(userAnswer) {
 
 // proceed to the next question
 function nextQuestion() {
-	document.getElementById("answer-input").disabled = false;
+	// increment question counter
 	currentQuestion++;
-	// reset variables
-	answerCorrect = false;
-	numTries = 3;
 
-	// display next question
-	var question = questions[currentQuestion];
-	document.getElementById("question").innerHTML = question;
+	// only display next question and reset variables if there is a next question
+	if ( currentQuestion < numQuestions ) {
+		// reset variables
+		document.getElementById("answer-input").disabled = false;
+		answerCorrect = false;
+		numTries = 3;
 
-	// reset the form
-	document.getElementById("answer-input").value = '';
+		// display next question
+		var question = questions[currentQuestion];
+		document.getElementById("question").innerHTML = question;
 
-	// update message area
-	document.getElementById("message").innerHTML = "Submit your answer!";
+		// reset the form
+		document.getElementById("answer-input").value = '';
+
+		// update message area
+		document.getElementById("message").innerHTML = "Submit your answer!";
+	}
+	else {
+		endQuiz(); // stop the quiz
+	}
+	
 }
 
 
@@ -73,7 +82,21 @@ function stopQuiz() {
 
 	// change stop button to start button
 	document.getElementById("stop").innerHTML = "Thank you for taking the quiz!";
+}
 
+
+// end the quiz
+// reset and output a message
+function endQuiz() {
+
+	// hide answer textbox and next button
+	var shown = document.getElementById("show");
+	shown.setAttribute("id", "hide");
+
+	// change stop button to start button
+	document.getElementById("stop").innerHTML = "You've completed the quiz!";
+	var newRecord = numCorrect + " / " + numQuestions + " correct.  Percentage Correct: " + (numCorrect / numQuestions) + "%";
+	document.getElementById("record").innerHTML = newRecord;
 }
 
 
