@@ -36,12 +36,6 @@ function startQuiz() {
 }
 
 
-// verify that the answer is alphabetical and does not contain white spaces
-function validateAnswer(userAnswer) {
-
-}
-
-
 // proceed to the next question
 function nextQuestion() {
 	// increment question counter
